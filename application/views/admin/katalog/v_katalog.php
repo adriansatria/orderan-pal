@@ -35,6 +35,7 @@
                                             <th width="20%">Harga</th>
                                             <th width="20%">Jumlah</th>
                                             <th width="20%">Foto</th>   
+                                            <th width="20%">Action</th>
                                         </tr>
                                     </thead>  
                                     <tbody> 
