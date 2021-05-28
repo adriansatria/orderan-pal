@@ -57,7 +57,7 @@
                                                 <td><?php echo $jumlah; ?></td>
                                                 <td><img src="<?= base_url('assets/foto/'.$foto)?>" width="100"></td>
                                                 <td>
-                                                    <a class="btn btn-primary" data-toggle="modal" data-target="#pinjambarang<?php echo $id; ?>">PINJAM</a>
+                                                    <a class="btn btn-primary" data-toggle="modal" data-target="#pinjambarang<?php echo $id++; ?>">PINJAM</a>
                                                     <!-- <a type="button" data-toggle="modal" data-target="#deletebarang<?php echo $id; ?>" class="btn btn-danger">Delete</a> -->
                                                 </td>
                                             </tr>

@@ -89,7 +89,7 @@ class katalog extends CI_Controller
 		);
 
 		$this->barang_model->insert_into($id, 'penyewaan', $data);
-		// echo '<script language=JavaScript>alert("Peminjaman Berhasil"); onclick=location.href = document.referrer</script>' ;
+		echo '<script language=JavaScript>alert("Peminjaman Berhasil"); onclick=location.href = document.referrer</script>' ;
 
 	}
 

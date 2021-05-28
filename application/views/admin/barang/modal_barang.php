@@ -185,16 +185,6 @@ foreach ($barang -> result_array () as $i) :
                         <button type="button" class="close" data-dismiss="modal"> &times; </button>
                     </div>
                     
-                    <div class="modal-body">
-                    <div class="form-group">
-                        <div class="row">
-                            <label for = "title" class = "col-sm-2 control-label"> </label>
-                            <div class="col-sm-10">
-                               <input type="hidden" class="form-control" name="id" placeholder="" value=" <?php echo $id ; ?> ">
-                            </div>
-                        </div>
-                    </div>
-
                      <div class="modal-body">
                     <div class="form-group">
                         <div class="row">
@@ -226,6 +216,7 @@ foreach ($barang -> result_array () as $i) :
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss = "modal"> Cancel </button>
                         <button type="submit" class="btn btn-primary"> Pinjam </button>
+                    </div>
                     </div>
                 </div>
             <?php echo form_close(); ?>
