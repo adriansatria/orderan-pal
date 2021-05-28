@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2021 at 11:15 AM
+-- Generation Time: May 28, 2021 at 11:47 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -29,25 +29,32 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `penyewaan` (
-  `idbarang` int(20) NOT NULL,
-  `nama_barang` varchar(50) NOT NULL,
-  `harga` int(50) NOT NULL,
-  `stok` int(50) NOT NULL,
-  `total` int(11) NOT NULL
+  `idpenyewaan` int(10) NOT NULL,
+  `idbarang` int(20) DEFAULT NULL,
+  `nama_barang` varchar(50) DEFAULT NULL,
+  `harga` int(50) DEFAULT NULL,
+  `quantity` int(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `penyewaan`
+-- Indexes for dumped tables
 --
 
-INSERT INTO `penyewaan` (`idbarang`, `nama_barang`, `harga`, `stok`, `total`) VALUES
-(1, '  Kamera  ', 300000, 2, 600000),
-(1, '  Kamera  ', 300000, 3, 900000),
-(1, '  Kamera  ', 300000, 1, 300000),
-(1, '  Kamera  ', 300000, 1, 300000),
-(1, '  Kamera  ', 300000, 2, 600000),
-(1, '  Kamera  ', 300000, 2, 0),
-(1, '  Kamera  ', 300000, 2, 600000);
+--
+-- Indexes for table `penyewaan`
+--
+ALTER TABLE `penyewaan`
+  ADD PRIMARY KEY (`idpenyewaan`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `penyewaan`
+--
+ALTER TABLE `penyewaan`
+  MODIFY `idpenyewaan` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

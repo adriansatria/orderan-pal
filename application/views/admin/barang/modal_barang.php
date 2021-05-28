@@ -185,6 +185,14 @@ foreach ($barang -> result_array () as $i) :
                         <button type="button" class="close" data-dismiss="modal"> &times; </button>
                     </div>
                     
+                        <div class="form-group">
+                        <div class="row">
+                                <div class="col-sm-10">
+                                    <input type="hidden" class="form-control" name="id" placeholder="" value="<?php echo $id ; ?> ">
+                            </div>
+                        </div>
+                    </div>
+
                      <div class="modal-body">
                     <div class="form-group">
                         <div class="row">
@@ -197,7 +205,7 @@ foreach ($barang -> result_array () as $i) :
 
                 <div class="form-group">
                     <div class="row">
-                            <label for = "title" class = "col-sm-2 control-label"> barang's Price </label>
+                            <label for = "title" class = "col-sm-2 control-label"> Barang's Price </label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="i_harga" placeholder="" value="<?php echo $harga ; ?> ">
                         </div>
@@ -206,7 +214,7 @@ foreach ($barang -> result_array () as $i) :
 
                 <div class="form-group">
                         <div class="row">
-                            <label for="title" class="col-sm-2 control-label"> jumlah dipinjam  </label>
+                            <label for="title" class="col-sm-2 control-label"> Jumlah dipinjam  </label>
                             <div class="col-sm-10">
                                 <input type="number" class="form-control" name="i_jumlah" placeholder="" value="<?php echo $jumlah ; ?> ">
                             </div>

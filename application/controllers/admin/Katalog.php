@@ -74,18 +74,18 @@ class katalog extends CI_Controller
 		// foreach($query->result() as $row){
 		// 	$this->db->insert('penyewaan');
 		// }
-		$idbarang = strip_tags($this->input->post ( 'id' ));
+		$id = strip_tags($this->input->post ( 'id' ));
 		$nama = strip_tags($this->input->post ( 'i_nama' ));
 		$harga = strip_tags( $this->input->post ('i_harga'));
 		$jumlah = strip_tags( $this->input->post ('i_jumlah'));
-		$total = $harga * $jumlah;
+		// $total = $harga * $jumlah;
 
 		$data = array (
-			'idbarang' => $idbarang,
+			'idbarang' => $id,
 			'nama_barang' => $nama,
 			'harga' => $harga,
-			'stok' => $jumlah,
-			'total' => $total,
+			'quantity' => $jumlah,
+			// 'total' => $total,
 		);
 
 		$this->barang_model->insert_into($id, 'penyewaan', $data);
