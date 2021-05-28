@@ -83,18 +83,21 @@
                                 <tbody id="detail_carts">
                                 <?php
                                         $x=1;
-                                        foreach($barang->result_array() as $i) :
+                                        $totalpembayaran=0;
+                                        foreach($penyewaan->result_array() as $i) :
                                             $id = $i ['idbarang'];
-                                            $nama = $i ['nama'];
+                                            $nama = $i ['nama_barang'];
                                             $harga = $i ['harga'];
-                                            $jumlah = $i ['jumlah'];
+                                            $jumlah = $i ['quantity'];
+                                            $total = $jumlah * $harga;
+                                            $totalpembayaran = $totalpembayaran + $total;
                                             ?>
                                             <tr>
                                                 <td><?php echo $x; ?></td>
                                                 <td><?php echo $nama; ?></td>
                                                 <td><?php echo $harga; ?></td>
                                                 <td><?php echo $jumlah; ?></td>
-                                                <td></td>
+                                                <td><?php echo $total; ?></td>
                                                 <td>
                                                     <a class="btn btn-primary" data-toggle="modal" data-target="#editbarang<?php echo $id; ?>">Edit</a>
                                                     <a type="button" data-toggle="modal" data-target="#deletebarang<?php echo $id; ?>" class="btn btn-danger">Delete</a>
@@ -124,7 +127,7 @@
                             <div class="card-body">
                                 <div class="box-body">
                                     <div>
-                                        <h2>Total Bayar : <br>Rp. 0,-</br> </h2><b><!-- <span data-total="total" style="font-size:35pt">Rp. <?= $total ?>,-</span> --></b>
+                                        <h2>Total Bayar : <br>Rp. <?php echo $totalpembayaran; ?>,-</br> </h2><b><!-- <span data-total="total" style="font-size:35pt">Rp. <?= $total ?>,-</span> --></b>
                                     </div>
                                 </div>
                             </div>

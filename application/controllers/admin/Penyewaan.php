@@ -20,6 +20,7 @@ class penyewaan extends CI_Controller
 				// 'total' => $this->show_total(),
 				'barang' => $this->penyewaan_model->barang_getAll(),
 				'customer' => $this->customer_model->customer_getAll(),
+				'penyewaan' => $this->penyewaan_model->penyewaan_getAll(),
 			);
 			$this->load->view('admin/penyewaan/v_penyewaan', $data);
 		
