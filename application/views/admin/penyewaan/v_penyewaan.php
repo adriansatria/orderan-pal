@@ -188,13 +188,9 @@
     <?php $this->load->view("admin/_partials/footer.php"); ?>
     <!-- The Modal -->
     <div>
-<<<<<<< HEAD
-=======
         <?php $this->load->view("admin/penyewaan/modal_transaksipenyewaan.php"); ?>
->>>>>>> 65d72d2e210efc335741a96c9ad829b7a20e4612
         <?php $this->load->view("admin/_partials/modal.php"); ?>
         <?php $this->load->view("admin/_partials/jss.php"); ?>
     </div>
 </body>
-<?php $this->load->view("admin/penyewaan/modal_penyewaan.php"); ?>
 </html>
