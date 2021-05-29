@@ -85,6 +85,7 @@
                                         $x=1;
                                         $totalpembayaran=0;
                                         foreach($penyewaan->result_array() as $i) :
+                                            $idpenyewaan = $i ['idpenyewaan'];
                                             $id = $i ['idbarang'];
                                             $nama = $i ['nama_barang'];
                                             $harga = $i ['harga'];
@@ -100,7 +101,7 @@
                                                 <td><?php echo $total; ?></td>
                                                 <td>
                                                     <a class="btn btn-primary" data-toggle="modal" data-target="#editbarang<?php echo $id; ?>">Edit</a>
-                                                    <a type="button" data-toggle="modal" data-target="#deletebarang<?php echo $id; ?>" class="btn btn-danger">Delete</a>
+                                                    <a type="button" data-toggle="modal" data-target="#deletebarang<?php echo $idpenyewaan; ?>" class="btn btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                             <?php
@@ -175,7 +176,7 @@
                            <!--  <button class="process_payment btn btn-flat btn-lg btn-success float-right" data-kode_sewa="<?=$kode_sewa;?>">
                                 Process Payment
                             </button> -->
-                            <button class="process_payment btn btn-flat btn-lg btn-success float-right" ">
+                            <button class="process_payment btn btn-flat btn-lg btn-success float-right">
                                 Process Payment
                             </button>
                         </div>
@@ -188,9 +189,9 @@
     <?php $this->load->view("admin/_partials/footer.php"); ?>
     <!-- The Modal -->
     <div>
-        <?php $this->load->view("admin/penyewaan/modal_penyewaan.php"); ?>
         <?php $this->load->view("admin/_partials/modal.php"); ?>
         <?php $this->load->view("admin/_partials/jss.php"); ?>
     </div>
 </body>
+<?php $this->load->view("admin/penyewaan/modal_penyewaan.php"); ?>
 </html>

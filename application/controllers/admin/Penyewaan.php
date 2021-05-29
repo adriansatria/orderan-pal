@@ -26,6 +26,13 @@ class penyewaan extends CI_Controller
 		
 	}
 
+	public function delete($id)
+	{
+		$this->penyewaan_model->penyewaan_delete('penyewaan', $id);
+		echo '<script language=JavaScript>alert("Delete Berhasil");
+		onclick=history.go(-1)</script>';
+	}
+
 	// function add_to_cart()
 	// {
 	// 	$data = array(

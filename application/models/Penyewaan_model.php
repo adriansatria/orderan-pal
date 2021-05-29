@@ -20,6 +20,20 @@ class penyewaan_model extends CI_Model
 		return $query;
 	}
 
+	public function penyewaan_update($id , $table , $data)
+	{
+		$query = $this->db->where('idpenyewaan' , $id);
+		$query = $this->db->update($table , $data);
+		return $query;
+	}
+
+	public function penyewaan_delete($table , $id)
+	{
+		$query = $this->db->where('idpenyewaan' , $id);
+		$query = $this->db->delete($table);
+		return $query;
+	}
+
 // 	public function book_getAll1()
 // 	{
 // 		$query = $this->db->query("SELECT * FROM book INNER JOIN book_author ON book.book_id=book_author.book_id INNER JOIN author ON book_author.author_id=author.author_id");
