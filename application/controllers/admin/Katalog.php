@@ -69,23 +69,19 @@ class katalog extends CI_Controller
 		}
 	}
 
-	public function insertinto($id){
-		// $query = $this->db->get('barang');
-		// foreach($query->result() as $row){
-		// 	$this->db->insert('penyewaan');
-		// }
+	// INSERT INTO TRANSAKSI PENYEWAAN
+	public function insertinto($id)
+	{
 		$id = strip_tags($this->input->post ( 'id' ));
 		$nama = strip_tags($this->input->post ( 'i_nama' ));
 		$harga = strip_tags( $this->input->post ('i_harga'));
 		$jumlah = strip_tags( $this->input->post ('i_jumlah'));
-		// $total = $harga * $jumlah;
 
 		$data = array (
 			'idbarang' => $id,
 			'nama_barang' => $nama,
 			'harga' => $harga,
 			'quantity' => $jumlah,
-			// 'total' => $total,
 		);
 
 		$this->barang_model->insert_into($id, 'penyewaan', $data);

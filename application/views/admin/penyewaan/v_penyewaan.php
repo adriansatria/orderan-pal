@@ -93,7 +93,7 @@
                                             $totalpembayaran = $totalpembayaran + $total;
                                             ?>
                                             <tr>
-                                                <td><?php echo $x; ?></td>
+                                                <td><?php echo $id; ?></td>
                                                 <td><?php echo $nama; ?></td>
                                                 <td><?php echo $harga; ?></td>
                                                 <td><?php echo $jumlah; ?></td>

@@ -198,7 +198,7 @@ foreach ($barang -> result_array () as $i) :
                         <div class="row">
                             <label for = "title" class = "col-sm-2 control-label"> Barang's Name </label>
                             <div class="col-sm-10">
-                               <input type="text" class="form-control" name="i_nama" placeholder="" value=" <?php echo $nama ; ?> ">
+                               <input type="text" class="form-control" name="i_nama" placeholder="" value="<?php echo $nama ; ?> " readonly>
                             </div>
                         </div>
                     </div>
@@ -207,7 +207,7 @@ foreach ($barang -> result_array () as $i) :
                     <div class="row">
                             <label for = "title" class = "col-sm-2 control-label"> Barang's Price </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="i_harga" placeholder="" value="<?php echo $harga ; ?> ">
+                                <input type="text" class="form-control" name="i_harga" placeholder="" value="<?php echo $harga ; ?> " readonly>
                         </div>
                     </div>
                 </div>
