@@ -111,7 +111,6 @@
                                 <!--END Prototype-->
                             </table>
                         </div>
-
                     </div>
 
                     <div class="row">
@@ -147,7 +146,7 @@
                                     <div class="row">
                                         <label for="title" class="col-sm-4 control-label">Change</label>
                                         <div class="col-sm-8">
-                                            <input type="number" class="form-control" value='0' name="Kembalian" onchange='tryNumberFormat(this.form);' readonly>
+                                            <input type="text" class="form-control" value="" name="Kembalian" onchange='tryNumberFormat(this.form);' readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -189,6 +188,10 @@
     <?php $this->load->view("admin/_partials/footer.php"); ?>
     <!-- The Modal -->
     <div>
+<<<<<<< HEAD
+=======
+        <?php $this->load->view("admin/penyewaan/modal_transaksipenyewaan.php"); ?>
+>>>>>>> 65d72d2e210efc335741a96c9ad829b7a20e4612
         <?php $this->load->view("admin/_partials/modal.php"); ?>
         <?php $this->load->view("admin/_partials/jss.php"); ?>
     </div>
