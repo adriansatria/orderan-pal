@@ -99,7 +99,7 @@
                                                 <td><?php echo $jumlah; ?></td>
                                                 <td><?php echo $total; ?></td>
                                                 <td>
-                                                    <a class="btn btn-primary" data-toggle="modal" data-target="#editbarang<?php echo $id; ?>">Edit</a>
+                                                    <a class="btn btn-primary" data-toggle="modal" data-target="#editpenyewaan<?php echo $id; ?>">Edit</a>
                                                     <a type="button" data-toggle="modal" data-target="#deletebarang<?php echo $id; ?>" class="btn btn-danger">Delete</a>
                                                 </td>
                                             </tr>
@@ -110,7 +110,6 @@
                                 <!--END Prototype-->
                             </table>
                         </div>
-
                     </div>
 
                     <div class="row">
@@ -146,7 +145,7 @@
                                     <div class="row">
                                         <label for="title" class="col-sm-4 control-label">Change</label>
                                         <div class="col-sm-8">
-                                            <input type="number" class="form-control" value='0' name="Kembalian" onchange='tryNumberFormat(this.form);' readonly>
+                                            <input type="text" class="form-control" value="" name="Kembalian" onchange='tryNumberFormat(this.form);' readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -175,7 +174,7 @@
                            <!--  <button class="process_payment btn btn-flat btn-lg btn-success float-right" data-kode_sewa="<?=$kode_sewa;?>">
                                 Process Payment
                             </button> -->
-                            <button class="process_payment btn btn-flat btn-lg btn-success float-right" ">
+                            <button class="process_payment btn btn-flat btn-lg btn-success float-right">
                                 Process Payment
                             </button>
                         </div>
@@ -188,7 +187,7 @@
     <?php $this->load->view("admin/_partials/footer.php"); ?>
     <!-- The Modal -->
     <div>
-        <?php $this->load->view("admin/penyewaan/modal_penyewaan.php"); ?>
+        <?php $this->load->view("admin/penyewaan/modal_transaksipenyewaan.php"); ?>
         <?php $this->load->view("admin/_partials/modal.php"); ?>
         <?php $this->load->view("admin/_partials/jss.php"); ?>
     </div>
