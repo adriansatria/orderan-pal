@@ -85,7 +85,6 @@
                                         $x=1;
                                         $totalpembayaran=0;
                                         foreach($penyewaan->result_array() as $i) :
-                                            $idpenyewaan = $i ['idpenyewaan'];
                                             $id = $i ['idbarang'];
                                             $nama = $i ['nama_barang'];
                                             $harga = $i ['harga'];
@@ -100,8 +99,8 @@
                                                 <td><?php echo $jumlah; ?></td>
                                                 <td><?php echo $total; ?></td>
                                                 <td>
-                                                    <a class="btn btn-primary" data-toggle="modal" data-target="#editbarang<?php echo $id; ?>">Edit</a>
-                                                    <a type="button" data-toggle="modal" data-target="#deletebarang<?php echo $idpenyewaan; ?>" class="btn btn-danger">Delete</a>
+                                                    <a class="btn btn-primary" data-toggle="modal" data-target="#editpenyewaan<?php echo $id; ?>">Edit</a>
+                                                    <a type="button" data-toggle="modal" data-target="#deletebarang<?php echo $id; ?>" class="btn btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                             <?php

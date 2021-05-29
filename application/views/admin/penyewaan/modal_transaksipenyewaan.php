@@ -1,6 +1,6 @@
 <?php
 foreach ($penyewaan -> result_array () as $i) :
-    $id = $i ['idpenyewaan'];
+    $id = $i ['idbarang'];
     $nama = $i ['nama_barang'];
     $harga = $i ['harga'];
     $jumlah = $i ['quantity'];
