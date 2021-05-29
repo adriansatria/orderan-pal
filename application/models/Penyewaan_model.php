@@ -20,6 +20,12 @@ class penyewaan_model extends CI_Model
 		return $query;
 	}
 
+	public function penyewaan_getById($id)
+	{
+		$query = $this->db->query("SELECT * FROM penyewaan where idpenyewaan = $id");
+		return $query;
+	}
+
 	public function penyewaan_update($id , $table , $data)
 	{
 		$query = $this->db->where('idpenyewaan' , $id);
@@ -32,6 +38,12 @@ class penyewaan_model extends CI_Model
 		$query = $this->db->where('idpenyewaan' , $id);
 		$query = $this->db->delete($table);
 		return $query;
+	}
+
+	public function penyewaan_cek($id)
+	{
+		$query = $this->db->query( "SELECT idpenyewaan FROM penyewaan where idpenyewaan = '$id'");
+		return $query->result_array();
 	}
 
 // 	public function book_getAll1()

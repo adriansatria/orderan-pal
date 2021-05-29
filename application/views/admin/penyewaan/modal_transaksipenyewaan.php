@@ -1,5 +1,6 @@
 <?php
 foreach ($penyewaan -> result_array () as $i) :
+    $idpenyewaan = $i ['idpenyewaan'];
     $id = $i ['idbarang'];
     $nama = $i ['nama_barang'];
     $harga = $i ['harga'];
@@ -8,7 +9,7 @@ foreach ($penyewaan -> result_array () as $i) :
     <div class="modal fade" id="editpenyewaan<?php echo $id; ?>"
         role="dialog">
         <div class="modal-dialog">
-           <?php echo form_open_multipart(base_url('admin/penyewaan/edit/'. $id)); ?>
+           <?php echo form_open_multipart(base_url('admin/penyewaan/edit/'. $idpenyewaan)); ?>
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title"> Data Barang Pinjaman </h5>
@@ -46,7 +47,7 @@ foreach ($penyewaan -> result_array () as $i) :
                         <div class="row">
                             <label for="title" class="col-sm-2 control-label"> Jumlah dipinjam  </label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="i_jumlah" placeholder="" value="<?php echo $jumlah ; ?> ">
+                                <input type="text" class="form-control" name="i_jumlah" placeholder="" value="<?php echo $jumlah ; ?>">
                             </div>
                         </div>
                     </div>

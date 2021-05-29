@@ -26,6 +26,51 @@ class penyewaan extends CI_Controller
 		
 	}
 
+	// INSERT INTO TRANSAKSI PENYEWAAN
+	public function insertinto($id)
+	{
+		$id = strip_tags($this->input->post ( 'id' ));
+		$nama = strip_tags($this->input->post ( 'i_nama' ));
+		$harga = strip_tags( $this->input->post ('i_harga'));
+		$jumlah = strip_tags( $this->input->post ('i_jumlah'));
+
+		$data = array (
+			'idbarang' => $id,
+			'nama_barang' => $nama,
+			'harga' => $harga,
+			'quantity' => $jumlah,
+		);
+
+		$this->barang_model->insert_into($id, 'penyewaan', $data);
+		echo '<script language=JavaScript>alert("Peminjaman Berhasil"); onclick=location.href = document.referrer</script>' ;
+
+	}
+
+	public function edit($idpenyewaan)
+	{
+		$data['penyewaan'] = $this->penyewaan_model->penyewaan_getById ($idpenyewaan);
+		$id = strip_tags($this->input->post ( 'id' ));
+		$nama = strip_tags($this->input->post ( 'i_nama' ));
+		$harga = strip_tags( $this->input->post ('i_harga'));
+		$jumlah = strip_tags( $this->input->post ('i_jumlah'));
+		
+		$data = array (
+			'idbarang' => $id,
+			'nama_barang' => $nama,
+			'harga' => $harga,
+			'quantity' => $jumlah,
+		);
+		
+		$x = $this->penyewaan_model->penyewaan_cek($idpenyewaan);
+		if ($x!=Null){
+			$this->penyewaan_model->penyewaan_update ($idpenyewaan, 'penyewaan', $data);
+			echo '<script language=JavaScript>alert("Update Berhasil");
+			onclick=location.href = document.referrer</script>';
+		}else {
+			echo '<script language=JavaScript>alert("Gagal!! user telah tersimpan sebelumnya"); onclick=history.go(-1)</script>' ;
+		}
+	}
+
 	public function delete($id)
 	{
 		$this->penyewaan_model->penyewaan_delete('penyewaan', $id);
