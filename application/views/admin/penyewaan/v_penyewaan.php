@@ -5,6 +5,13 @@
     <?php $this->load->view("admin/_partials/head.php"); ?>
 </head>
 
+<script type="text/javascript">
+    function simpan() {
+        var storage = document.getElementById('totalBayar').innerText;
+        localStorage.setItem('total_bayar', storage);
+    }
+</script>
+
 <body class="sb-nav-fixed">
     <?php $this->load->view("admin/_partials/navbar.php"); ?>
 
@@ -127,8 +134,8 @@
                             <div class="card-body">
                                 <div class="box-body">
                                     <div>
-                                        <h2>Total Bayar : <br>Rp. <?php echo $totalpembayaran; ?>,-</br> </h2><b><!-- <span data-total="total" style="font-size:35pt">Rp. <?= $total ?>,-</span> --></b>
-                                        <input type="submit" class="process_payment btn btn-flat btn-md btn-success float-right" value="Process payment">
+                                        <h2>Total Bayar : <br>Rp. <span id="totalBayar"><?php echo $totalpembayaran; ?></span>,-</br> </h2><b><!-- <span data-total="total" style="font-size:35pt">Rp. <?= $total ?>,-</span> --></b>
+                                        <input type="submit" onclick="simpan()" class="process_payment btn btn-flat btn-md btn-success float-right" value="Process payment">
                                     </div>
                                 </div>
                             </div>

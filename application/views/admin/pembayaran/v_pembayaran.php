@@ -5,6 +5,31 @@
     <?php $this->load->view("admin/_partials/head.php"); ?>
 </head>
 
+<script type="text/javascript">
+    var totalBayar = 0;
+
+    if (document.readyState == 'loading') {
+        document.addEventListener('DOMContentLoaded', ready)
+    } else {
+        ready()
+    }
+
+    function ready() {
+        totalBayar = localStorage.getItem('total_bayar');
+        if (totalBayar != 0) {
+            document.getElementById('totalPembayaran').innerHTML = totalBayar;
+        } else {
+            document.getElementById('totalPembayaran').innerHTML = totalBayar;
+        }
+    }
+
+    function hitungKembalian() {
+        var uang = document.getElementById('inputUang').value;
+        var kembalian = uang - totalBayar;
+        document.getElementById('kembalian').value = kembalian;
+    }
+</script>
+
 <body class="sb-nav-fixed">
     <?php $this->load->view("admin/_partials/navbar.php"); ?>
 
@@ -71,7 +96,7 @@
                             <div class="card-body">
                                 <div class="box-body">
                                     <div>
-                                        <h2>Total Bayar : <br>Rp. 0,-</br> </h2><b><!-- <span data-total="total" style="font-size:35pt">Rp. <?= $total ?>,-</span> --></b>
+                                        <h2>Total Bayar : <br>Rp. <span id="totalPembayaran">0</span>,-</br> </h2><b><!-- <span data-total="total" style="font-size:35pt">Rp. <?= $total ?>,-</span> --></b>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +107,7 @@
                                     <div class="row">
                                         <label for="title" class="perhitungan col-sm-4 control-label">Cash</label>
                                         <div class="col-sm-8">
-                                            <input type="number" class="form-control" name='Uang_Pembayaran' size='23' onFocus="startCalc();" onBlur="stopCalc();" />
+                                            <input type="number" id="inputUang" class="form-control" name='Uang_Pembayaran' size='23' onchange="hitungKembalian()" />
                                         </div>
                                     </div>
                                 </div>
@@ -90,7 +115,7 @@
                                     <div class="row">
                                         <label for="title" class="col-sm-4 control-label">Change</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" value="" name="Kembalian" onchange='tryNumberFormat(this.form);' readonly>
+                                            <input type="text" id="kembalian" class="form-control" value="" name="Kembalian" readonly>
                                         </div>
                                     </div>
                                 </div>
