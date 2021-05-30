@@ -114,7 +114,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="card col-sm-3">
+                        <div class="card col-md">
                             <div class="card-body">
                                 <div class="box-body">
                                     <div>
@@ -123,61 +123,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card col-sm-4">
+                        <div class="card col-md">
                             <div class="card-body">
                                 <div class="box-body">
                                     <div>
                                         <h2>Total Bayar : <br>Rp. <?php echo $totalpembayaran; ?>,-</br> </h2><b><!-- <span data-total="total" style="font-size:35pt">Rp. <?= $total ?>,-</span> --></b>
+                                        <input type="submit" class="process_payment btn btn-flat btn-md btn-success float-right" value="Process payment">
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-sm-5">
-                            <Form method="post" name='autoSumForm'>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <label for="title" class="perhitungan col-sm-4 control-label">Cash</label>
-                                        <div class="col-sm-8">
-                                            <input type="number" class="form-control" name='Uang_Pembayaran' size='23' onFocus="startCalc();" onBlur="stopCalc();" />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <label for="title" class="col-sm-4 control-label">Change</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" value="" name="Kembalian" onchange='tryNumberFormat(this.form);' readonly>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="form-group">
-                                <table>
-                                    <tr>
-                                        <td width="38%">
-                                            <label for="title">Pegawai</label>
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control" name="nama_pegawai" id="nama_pegawai">
-                                            <input type="hidden" class="form-control" name="id_pegawai" id="id_pegawai">
-                                        </td>
-                                        <td>
-                                            <button class="add_pegawai btn btn-info btn-flat" data-toggle="modal" data-target="#showpegawai">
-                                                <i class="fa fa-search"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <a class="btn btn-flat btn-lg btn-warning" href="<?php echo base_url('admin/penyewaan/clear_carts'); ?>">
-                                Cancel
-                            </a>
-                           <!--  <button class="process_payment btn btn-flat btn-lg btn-success float-right" data-kode_sewa="<?=$kode_sewa;?>">
-                                Process Payment
-                            </button> -->
-                            <button class="process_payment btn btn-flat btn-lg btn-success float-right">
-                                Process Payment
-                            </button>
                         </div>
                     </div>
                 </div>
