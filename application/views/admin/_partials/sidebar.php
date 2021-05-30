@@ -40,6 +40,10 @@
                 <div class="sb-nav-link-icon"><i class="far fa-address-book"></i></div>
                 Penyewaan
             </a>
+            <a class="nav-link" href="<?php echo site_url ('admin/pembayaran') ?>">
+                <div class="sb-nav-link-icon"><i class="far fa-address-book"></i></div>
+                Pembayaran
+            </a>
             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
