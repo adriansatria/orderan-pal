@@ -7,6 +7,7 @@
 
 <script type="text/javascript">
     var totalBayar = 0;
+    var totalPinjam = 0;
 
     if (document.readyState == 'loading') {
         document.addEventListener('DOMContentLoaded', ready)
@@ -15,12 +16,19 @@
     }
 
     function ready() {
-        totalBayar = localStorage.getItem('total_bayar');
-        if (totalBayar != 0) {
+        totalBayar = JSON.parse(localStorage.getItem('transaksi')).total_bayar;
+        totalPinjam = JSON.parse(localStorage.getItem('transaksi')).total_pinjam;
+        if (totalBayar != 0 && totalPinjam != 0 ) {
             document.getElementById('totalPembayaran').innerHTML = totalBayar;
+            document.getElementById('totaldipinjam').innerHTML = totalPinjam;
         } else {
             document.getElementById('totalPembayaran').innerHTML = totalBayar;
+            document.getElementById('totaldipinjam').innerHTML = totalPinjam;
         }
+    }
+
+    function clearstorage(){
+        localstorage.clear();
     }
 
     function hitungKembalian() {
@@ -96,7 +104,10 @@
                             <div class="card-body">
                                 <div class="box-body">
                                     <div>
-                                        <h2>Total Bayar : <br>Rp. <span id="totalPembayaran">0</span>,-</br> </h2><b><!-- <span data-total="total" style="font-size:35pt">Rp. <?= $total ?>,-</span> --></b>
+                                        <h4>Total Barang : <br> <span id="totaldipinjam">0</span> buah</br> </h2><b><!-- <span data-total="total" style="font-size:35pt">Rp. <?= $total ?>,-</span> --></b>
+                                    </div>
+                                    <div>
+                                        <h4>Total Bayar : <br>Rp. <span id="totalPembayaran">0</span>,-</br> </h2><b><!-- <span data-total="total" style="font-size:35pt">Rp. <?= $total ?>,-</span> --></b>
                                     </div>
                                 </div>
                             </div>
@@ -138,17 +149,58 @@
                                     </tr>
                                 </table>
                             </div>
-                            <a class="btn btn-flat btn-lg btn-warning" href="<?php echo base_url('admin/penyewaan/clear_carts'); ?>">
-                                Cancel
-                            </a>
+                            <form action="<?php echo base_url('admin/pembayaran/'); ?>">
+                                <input type="submit" value="cancel" class="btn btn-flat btn-lg btn-warning" onclick="clearstorage()">
+                                <button class="process_payment btn btn-flat btn-lg btn-success float-right">
+                                Process Payment
+                            </button>
+                            </form>
                            <!--  <button class="process_payment btn btn-flat btn-lg btn-success float-right" data-kode_sewa="<?=$kode_sewa;?>">
                                 Process Payment
                             </button> -->
-                            <button class="process_payment btn btn-flat btn-lg btn-success float-right">
-                                Process Payment
-                            </button>
                         </div>
                     </div>
+
+                    <div class="col-sm-13 mt-5">
+                        <div class="box-body table-responsive">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Id Penyewaan</th>
+                                        <th>Total</th>
+                                        <th>Jumlah Sewa</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+
+
+                                <!--Prototype-->
+                                <tbody id="detail_carts">
+                                <?php
+                                        $x=1;
+                                        foreach($detailpemb->result_array() as $i) :
+                                            $idpembayaran = $i ['iddetailpemb'];
+                                            $total = $i['totalpembayaran'];
+                                            $jumlah = $i ['jumlahsewa'];
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $idpembayaran; ?></td>
+                                                <td><?php echo $total; ?></td>
+                                                <td><?php echo $jumlah; ?></td>
+                                                <td>
+                                                    <!-- <a class="btn btn-primary" data-toggle="modal" data-target="#editpenyewaan<?php echo $id; ?>">Edit</a>
+                                                    <a type="button" data-toggle="modal" data-target="#deletebarang<?php echo $idpenyewaan; ?>" class="btn btn-danger">Delete</a> -->
+                                                </td>
+                                            </tr>
+                                            <?php
+                                            $x++;
+                                        endforeach; ?>  
+                                </tbody>
+                                <!--END Prototype-->
+                            </table>
+                        </div>
+                    </div>
+
                 </div>
             </main>
         </div>

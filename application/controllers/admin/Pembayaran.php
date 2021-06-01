@@ -7,13 +7,13 @@ class pembayaran extends CI_Controller
 	{
 		parent::__construct();
 		# Load model, helper dan library
-		// $this->load->model('pembayaran_model');
+		$this->load->model('Detailpemb_model');
 	}
 
 	public function index()
 	{
-		// $data['detailpemb']		=$this->detailpemb_model->detailpemb_getAll();
-		$this->load->view('admin/pembayaran/v_pembayaran');
+		$data['detailpemb']	= $this->Detailpemb_model->detailpemb_getAll();
+		$this->load->view('admin/pembayaran/v_pembayaran', $data);
 	}
 }
 ?>

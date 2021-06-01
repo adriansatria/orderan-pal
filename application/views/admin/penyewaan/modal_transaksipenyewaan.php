@@ -6,7 +6,7 @@ foreach ($penyewaan -> result_array () as $i) :
     $harga = $i ['harga'];
     $jumlah = $i ['quantity'];
     ?>
-    <div class="modal fade" id="editpenyewaan<?php echo $id; ?>"
+    <div class="modal fade" id="editpenyewaan<?php echo $idpenyewaan; ?>"
         role="dialog">
         <div class="modal-dialog">
            <?php echo form_open_multipart(base_url('admin/penyewaan/edit/'. $idpenyewaan)); ?>
