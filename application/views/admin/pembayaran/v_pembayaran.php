@@ -21,14 +21,18 @@
         if (totalBayar != 0 && totalPinjam != 0 ) {
             document.getElementById('totalPembayaran').innerHTML = totalBayar;
             document.getElementById('totaldipinjam').innerHTML = totalPinjam;
+            document.getElementById('formtotalPembayaran').value = totalBayar;
+            document.getElementById('formtotaldipinjam').value = totalPinjam;
         } else {
             document.getElementById('totalPembayaran').innerHTML = totalBayar;
             document.getElementById('totaldipinjam').innerHTML = totalPinjam;
+            document.getElementById('formtotalPembayaran').value = totalBayar;
+            document.getElementById('formtotaldipinjam').value = totalPinjam;
         }
     }
 
-    function clearstorage(){
-        localstorage.clear();
+    function clear(){
+        window.localStorage.clear();
     }
 
     function hitungKembalian() {
@@ -89,7 +93,7 @@
                             </form>
                         </div>
                     </div>
-
+                    
                     <div class="row">
                         <div class="card col-sm-3">
                             <div class="card-body">
@@ -113,11 +117,13 @@
                             </div>
                         </div>
                         <div class="col-sm-5">
-                            <Form method="post" name='autoSumForm'>
+                            <form method="post" action="<?php echo base_url ('/admin/pembayaran/insert'); ?>" name='autoSumForm'>
                                 <div class="form-group">
                                     <div class="row">
                                         <label for="title" class="perhitungan col-sm-4 control-label">Cash</label>
                                         <div class="col-sm-8">
+                                            <input type="hidden" id="formtotaldipinjam" class="form-control" name='total_pinjam'/>
+                                            <input type="hidden" id="formtotalPembayaran" class="form-control" name='total_bayar'/>
                                             <input type="number" id="inputUang" class="form-control" name='Uang_Pembayaran' size='23' onchange="hitungKembalian()" />
                                         </div>
                                     </div>
@@ -130,7 +136,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>
+                            
                             <div class="form-group">
                                 <table>
                                     <tr>
@@ -149,15 +155,12 @@
                                     </tr>
                                 </table>
                             </div>
-                            <form action="<?php echo base_url('admin/pembayaran/'); ?>">
-                                <input type="submit" value="cancel" class="btn btn-flat btn-lg btn-warning" onclick="clearstorage()">
-                                <button class="process_payment btn btn-flat btn-lg btn-success float-right">
-                                Process Payment
-                            </button>
-                            </form>
+                                <input class="process_payment btn btn-flat btn-lg btn-success float-right" value="Process payment" type="submit">
                            <!--  <button class="process_payment btn btn-flat btn-lg btn-success float-right" data-kode_sewa="<?=$kode_sewa;?>">
                                 Process Payment
                             </button> -->
+                            </form>
+                            <input type="submit" onClick="clear()" class="btn btn-flat btn-lg btn-warning" value="Cancel">
                         </div>
                     </div>
 
@@ -169,6 +172,8 @@
                                         <th>Id Penyewaan</th>
                                         <th>Total</th>
                                         <th>Jumlah Sewa</th>
+                                        <th>Uang bayar</th>
+                                        <th>Uang kembalian</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -182,11 +187,15 @@
                                             $idpembayaran = $i ['iddetailpemb'];
                                             $total = $i['totalpembayaran'];
                                             $jumlah = $i ['jumlahsewa'];
+                                            $bayar = $i['bayar'];
+                                            $kembali = $i['kembalian'];
                                             ?>
                                             <tr>
                                                 <td><?php echo $idpembayaran; ?></td>
                                                 <td><?php echo $total; ?></td>
                                                 <td><?php echo $jumlah; ?></td>
+                                                <td><?php echo $bayar; ?></td>
+                                                <td><?php echo $kembali; ?></td>
                                                 <td>
                                                     <!-- <a class="btn btn-primary" data-toggle="modal" data-target="#editpenyewaan<?php echo $id; ?>">Edit</a>
                                                     <a type="button" data-toggle="modal" data-target="#deletebarang<?php echo $idpenyewaan; ?>" class="btn btn-danger">Delete</a> -->
