@@ -182,14 +182,14 @@
                                             <input type="hidden" class="form-control" name="id_pegawai" id="id_pegawai">
                                         </td>
                                         <td>
-                                            <button class="add_pegawai btn btn-info btn-flat" onclick="kosongkanLocalstorage()" data-toggle="modal" data-target="#showpegawai">
+                                            <button class="add_pegawai btn btn-info btn-flat" data-toggle="modal" data-target="#showpegawai">
                                                 <i class="fa fa-search"></i>
                                             </button>
                                         </td>
                                     </tr>
                                 </table>
                             </div>
-                                <input class="process_payment btn btn-flat btn-lg btn-success float-right" value="Process payment" type="submit">
+                                <input onclick="kosongkanLocalstorage()" class="process_payment btn btn-flat btn-lg btn-success float-right" value="Process payment" type="submit">
                            <!--  <button class="process_payment btn btn-flat btn-lg btn-success float-right" data-kode_sewa="<?=$kode_sewa;?>">
                                 Process Payment
                             </button> -->
