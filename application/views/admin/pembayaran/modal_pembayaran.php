@@ -94,7 +94,7 @@ foreach ($detailpemb -> result_array () as $i) :
 					<div class="row">
 						<label for="title" class="col-md-5 control-label"> Keterangan Denda </label>
 						<div class="col-md">
-							<textarea type="text" class="form-control" name="i_ketdenda"></textarea>
+							<textarea type="text" placeholder="Jika tidak ada isi dengan ' - '" class="form-control" name="i_ketdenda"></textarea>
 						</div>
 					</div>
 				</div>
@@ -103,7 +103,7 @@ foreach ($detailpemb -> result_array () as $i) :
 					<div class="row">
 						<label for="title" class="col-md-5 control-label"> Total denda </label>
 						<div class="col-md">
-							<input type="text" class="form-control" name="i_totaldenda">
+							<input type="text" value="0" class="form-control" name="i_totaldenda">
 						</div>
 					</div>
 				</div>
