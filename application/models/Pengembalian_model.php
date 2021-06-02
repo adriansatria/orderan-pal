@@ -13,5 +13,12 @@ class pengembalian_model extends CI_Model
 		$query = $this->db->query("SELECT * FROM pengembalian where idpengembalian=$id");
 		return $query;
 	}
+
+	public function pengembalian_delete($table , $id)
+	{
+		$query = $this->db->where('idpengembalian' , $id);
+		$query = $this->db->delete($table);
+		return $query;
+	}
 }
 ?>

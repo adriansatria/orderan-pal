@@ -71,7 +71,7 @@
                                         <th>Tanggal Pengembalian</th>
                                         <th>Ket. denda</th>
                                         <th>Total denda</th>
-                                        <!-- <th>Action</th> -->
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
 
@@ -81,6 +81,7 @@
                                 <?php
                                         $x=1;
                                         foreach($pengembalian->result_array() as $i) :
+                                            $idpengembalian = $i ['idpengembalian'];
                                             $idpembayaran = $i ['iddetailpemb'];
                                             $total = $i['totalpembayaran'];
                                             $jumlah = $i ['jumlahsewa'];
@@ -102,10 +103,9 @@
                                                 <td><?php echo $tglpengembalian; ?></td>
                                                 <td><?php echo $ketdenda; ?></td>
                                                 <td><?php echo $total_denda; ?></td>
-                                                <!-- <td> -->
-                                                    <!-- <a class="btn btn-primary" data-toggle="modal" data-target="#editpenyewaan<?php echo $id; ?>">Edit</a>
-                                                    <a type="button" data-toggle="modal" data-target="#deletebarang<?php echo $idpenyewaan; ?>" class="btn btn-danger">Delete</a> -->
-                                                <!-- </td> -->
+                                                <td>
+                                                    <a type="button" data-toggle="modal" data-target="#deletebarang<?php echo $idpengembalian; ?>" class="btn btn-danger">Delete</a>
+                                                </td>
                                             </tr>
                                         <?php
                                             $x++;
@@ -119,6 +119,7 @@
             </main>
         </div>
     </div><br>
+    <?php $this->load->view("admin/pengembalian/modal_pengembalian.php"); ?>
 
     <?php $this->load->view("admin/_partials/footer.php"); ?>
     <!-- The Modal -->

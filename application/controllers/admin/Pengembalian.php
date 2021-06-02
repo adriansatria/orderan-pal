@@ -15,5 +15,12 @@ class pengembalian extends CI_Controller
 		$data['pengembalian'] = $this->pengembalian_model->pengembalian_getAll();
 		$this->load->view('admin/pengembalian/v_pengembalian', $data);
 	}
+
+	public function delete($id)
+	{
+		$this->pengembalian_model->pengembalian_delete('pengembalian', $id );
+		echo '<script language=JavaScript>alert("Delete Berhasil");
+		onclick=history.go(-1)</script>';
+	}
 }
 ?>
