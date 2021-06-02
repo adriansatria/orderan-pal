@@ -22,17 +22,47 @@ class pembayaran extends CI_Controller
 		$total_bayar = strip_tags($this->input->post('total_bayar'));
 		$bayar = strip_tags($this->input->post('Uang_Pembayaran'));
 		$kembalian = strip_tags($this->input->post('Kembalian'));
+		$tglpinjam = strip_tags($this->input->post('tanggalPinjam'));
+		$tglkembali = strip_tags($this->input->post('tanggalKembali'));
 
 		$data = array(
 			'totalpembayaran' => $total_bayar,
 			'jumlahsewa' => $total_pinjam,
 			'bayar' => $bayar,
-			'kembalian' => $kembalian
+			'kembalian' => $kembalian,
+			'tanggalpeminjaman' => $tglpinjam,
+			'tanggalpengembalian' => $tglkembali
 		);
 
 		$this->Detailpemb_model->detailpemb_insert('detailpemb', $data);
 		echo '<script language=JavaScript>alert("Input Berhasil")
 			onclick=location.href = document.referrer</script>';
+	}
+
+	// INSERT INTO TRANSAKSI PENGEMBALIAN
+	public function insertinto($id)
+	{
+		$id = strip_tags($this->input->post ( 'id' ));
+		$total = strip_tags($this->input->post ( 'i_total' ));
+		$jumlahsewa = strip_tags( $this->input->post ('i_jumlah'));
+		$bayar = strip_tags( $this->input->post ('i_bayar'));
+		$kembali = strip_tags( $this->input->post ('i_kembali'));
+		$tgl_pinjam = strip_tags( $this->input->post ('i_pinjam'));
+		$tgl_kembali = strip_tags( $this->input->post ('i_pengembali'));
+
+		$data = array (
+			'iddetailpemb' => $id,
+			'totalpembayaran' => $total,
+			'jumlahsewa' => $jumlahsewa,
+			'bayar' => $bayar,
+			'kembalian' => $kembali,
+			'tanggalpeminjaman' => $tgl_pinjam,
+			'tanggalpengembalian' => $tgl_kembali
+		);
+
+		$this->Detailpemb_model->detailpemb_insertinto($id, 'pengembalian', $data);
+		echo '<script language=JavaScript>alert("Pengembalian Berhasil"); onclick=location.href = document.referrer</script>' ;
+
 	}
 }
 ?>

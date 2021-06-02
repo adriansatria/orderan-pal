@@ -9,11 +9,15 @@
 	function simpan() {
 		var storage = document.getElementById('totalBayar').innerText;
 		var jumlahpinjaman = document.getElementById('totalPinjam').innerText;
+		var tanggalPinjam = document.getElementById('tanggalPeminjaman').value;
+		var tanggalPengembalian = document.getElementById('tanggalPengembalian').value;
 
-        var object = {
-            'total_bayar': storage,
-            'total_pinjam':  jumlahpinjaman
-        };
+		var object = {
+			'total_bayar': storage,
+			'total_pinjam': jumlahpinjaman,
+			'tanggal_pinjam': tanggalPinjam,
+			'tanggal_kembali': tanggalPengembalian 
+		};
 
 		localStorage.setItem('transaksi', JSON.stringify(object));
 	}
@@ -154,6 +158,21 @@
 										<form action="<?php echo site_url ('admin/pembayaran') ?>">
 											<div class="row">
 												<div class="col-md">
+													<h5>Tanggal Peminjaman</h5>
+													<div class="form-group">
+														<input type="date" class="form-control" id="tanggalPeminjaman" name="tanggalPinjam">
+													</div>
+												</div>
+												<div class="col-md">
+													<div class="form-group">
+														<h5>Tanggal Pengembalian</h5>
+														<input type="date" class="form-control" id="tanggalPengembalian" name="tanggalPinjam">
+													</div>
+													<!-- <span data-total="total" style="font-size:35pt">Rp. <?= $total ?>,-</span> --></b>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-md">
 													<h4>Total barang : <br> <span
 															id="totalPinjam"><?php echo $totalBarang ?></span> buah
 													</h4>
@@ -161,8 +180,8 @@
 												<div class="col-md">
 													<h4>Total Bayar : <br>Rp. <span
 															id="totalBayar"><?php echo $totalpembayaran; ?></span>,-</br>
-														</h4><b>
-															<!-- <span data-total="total" style="font-size:35pt">Rp. <?= $total ?>,-</span> --></b>
+													</h4><b>
+														<!-- <span data-total="total" style="font-size:35pt">Rp. <?= $total ?>,-</span> --></b>
 												</div>
 											</div>
 											<input type="submit" onclick="simpan()"

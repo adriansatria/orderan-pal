@@ -31,6 +31,10 @@
                 <div class="sb-nav-link-icon"><i class="far fa-address-book"></i></div>
                 Promo
             </a>
+            <a class="nav-link" href="<?php echo site_url ('admin/pengembalian') ?>">
+                <div class="sb-nav-link-icon"><i class="far fa-address-book"></i></div>
+                pengembalian
+            </a>
             <!-- <a class="nav-link" href="<?php echo site_url ('admin/detailpemb') ?>">
                 <div class="sb-nav-link-icon"><i class="far fa-address-book"></i></div>
                 Detail Pembelian

@@ -8,6 +8,8 @@
 <script type="text/javascript">
     var totalBayar = 0;
     var totalPinjam = 0;
+    var tglpinjam = 0;
+    var tglkembali = 0;
 
     if (document.readyState == 'loading') {
         document.addEventListener('DOMContentLoaded', ready)
@@ -18,11 +20,16 @@
     function ready() {
         totalBayar = JSON.parse(localStorage.getItem('transaksi')).total_bayar;
         totalPinjam = JSON.parse(localStorage.getItem('transaksi')).total_pinjam;
+        tglpinjam = JSON.parse(localStorage.getItem('transaksi')).tanggal_pinjam;
+        tglkembali = JSON.parse(localStorage.getItem('transaksi')).tanggal_kembali;
+
         if (totalBayar != 0 && totalPinjam != 0 ) {
             document.getElementById('totalPembayaran').innerHTML = totalBayar;
             document.getElementById('totaldipinjam').innerHTML = totalPinjam;
             document.getElementById('formtotalPembayaran').value = totalBayar;
             document.getElementById('formtotaldipinjam').value = totalPinjam;
+            document.getElementById('tanggalPinjam').value = tglpinjam;
+            document.getElementById('tanggalKembali').value = tglkembali;
         } else {
             document.getElementById('totalPembayaran').innerHTML = totalBayar;
             document.getElementById('totaldipinjam').innerHTML = totalPinjam;
@@ -110,7 +117,7 @@
                                     <div>
                                         <h4>Total Barang : <br> <span id="totaldipinjam">0</span> buah</br> </h2><b><!-- <span data-total="total" style="font-size:35pt">Rp. <?= $total ?>,-</span> --></b>
                                     </div>
-                                    <div>
+                                    <div class="mt-4">
                                         <h4>Total Bayar : <br>Rp. <span id="totalPembayaran">0</span>,-</br> </h2><b><!-- <span data-total="total" style="font-size:35pt">Rp. <?= $total ?>,-</span> --></b>
                                     </div>
                                 </div>
@@ -118,6 +125,22 @@
                         </div>
                         <div class="col-sm-5">
                             <form method="post" action="<?php echo base_url ('/admin/pembayaran/insert'); ?>" name='autoSumForm'>
+                                 <div class="form-group">
+                                    <div class="row">
+                                        <!-- <label for="title" class="col-sm-4 control-label">Tanggal Peminjaman</label> -->
+                                        <div class="col-sm-8">
+                                             <input type="hidden" class="form-control" id="tanggalPinjam" name="tanggalPinjam">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+                                        <!-- <label for="title" class="col-sm-4 control-label">Tanggal Kembali</label> -->
+                                        <div class="col-sm-8">
+                                             <input type="hidden" class="form-control" id="tanggalKembali" name="tanggalKembali">
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <div class="row">
                                         <label for="title" class="perhitungan col-sm-4 control-label">Cash</label>
@@ -197,8 +220,11 @@
                                                 <td><?php echo $bayar; ?></td>
                                                 <td><?php echo $kembali; ?></td>
                                                 <td>
-                                                    <!-- <a class="btn btn-primary" data-toggle="modal" data-target="#editpenyewaan<?php echo $id; ?>">Edit</a>
-                                                    <a type="button" data-toggle="modal" data-target="#deletebarang<?php echo $idpenyewaan; ?>" class="btn btn-danger">Delete</a> -->
+                                                <!-- <form action="" method="post">
+                                                  <input class="btn btn-primary" value="Kembalikan" type="submit">
+                                                </form> -->
+                                                    <a class="btn btn-primary" data-toggle="modal" data-target="#pengembalian<?php echo $idpembayaran; ?>">Kembalikan</a>
+                                                    <!-- <a type="button" data-toggle="modal" data-target="#deletebarang<?php echo $idpenyewaan; ?>" class="btn btn-danger">Delete</a> -->
                                                 </td>
                                             </tr>
                                             <?php
@@ -218,6 +244,7 @@
     <?php $this->load->view("admin/_partials/footer.php"); ?>
     <!-- The Modal -->
     <div>
+        <?php $this->load->view("admin/pembayaran/modal_pembayaran.php") ?>
         <?php $this->load->view("admin/_partials/modal.php"); ?>
         <?php $this->load->view("admin/_partials/jss.php"); ?>
     </div>

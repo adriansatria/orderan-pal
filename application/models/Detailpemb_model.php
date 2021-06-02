@@ -27,6 +27,15 @@ class Detailpemb_model extends CI_Model
 		return $query ;
 	}
 
+	// INSERT INTO DETAIL PEMBAYARAN KE PENGEMBALIAN
+
+	public function detailpemb_insertinto ($id , $table , $data)
+	{
+		$query = $this ->db->where ('pengembalian' , $id);
+		$query = $this ->db->insert ($table , $data);
+		return $query ;
+	}
+
 	public function detailpemb_delete ($table , $id)
 	{
 		$query = $this ->db->where ('iddetailpemb' , $id);
