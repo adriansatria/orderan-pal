@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2021 at 08:39 AM
+-- Generation Time: Jun 02, 2021 at 11:35 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -100,7 +100,9 @@ CREATE TABLE `detailpemb` (
 
 INSERT INTO `detailpemb` (`iddetailpemb`, `idpenyewaan`, `idpembayaran`, `idpromo`, `totalpembayaran`, `jumlahsewa`, `bayar`, `kembalian`, `tanggalpeminjaman`, `tanggalpengembalian`) VALUES
 (11, 0, 0, 0, 2560000, 23, 2600000, 40000, '2021-06-02', '2021-06-04'),
-(12, 0, 0, 0, 1260000, 16, 1300000, 40000, '2021-06-02', '2021-06-03');
+(12, 0, 0, 0, 1260000, 16, 1300000, 40000, '2021-06-02', '2021-06-03'),
+(13, 0, 0, 0, 1260000, 16, 1270000, 10000, '2021-06-02', '2021-06-04'),
+(14, 0, 0, 0, 1260000, 16, 1270000, 10000, '2021-06-02', '2021-06-04');
 
 -- --------------------------------------------------------
 
@@ -139,17 +141,10 @@ CREATE TABLE `pengembalian` (
   `bayar` int(11) DEFAULT NULL,
   `kembalian` int(11) DEFAULT NULL,
   `tanggalpeminjaman` date DEFAULT NULL,
-  `tanggalpengembalian` date DEFAULT NULL
+  `tanggalpengembalian` date DEFAULT NULL,
+  `keterangandenda` text NOT NULL,
+  `totaldenda` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `pengembalian`
---
-
-INSERT INTO `pengembalian` (`idpengembalian`, `iddetailpemb`, `totalpembayaran`, `jumlahsewa`, `bayar`, `kembalian`, `tanggalpeminjaman`, `tanggalpengembalian`) VALUES
-(1, 11, 2560000, 23, 2600000, 40000, '2021-06-02', '2021-06-04'),
-(2, 12, 1260000, 16, 1300000, 40000, '2021-06-02', '2021-06-03'),
-(3, 12, 1260000, 16, 1300000, 40000, '2021-06-02', '2021-06-03');
 
 -- --------------------------------------------------------
 
@@ -358,7 +353,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `detailpemb`
 --
 ALTER TABLE `detailpemb`
-  MODIFY `iddetailpemb` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `iddetailpemb` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `pegawai`
@@ -370,7 +365,7 @@ ALTER TABLE `pegawai`
 -- AUTO_INCREMENT for table `pengembalian`
 --
 ALTER TABLE `pengembalian`
-  MODIFY `idpengembalian` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idpengembalian` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `penyewaan`

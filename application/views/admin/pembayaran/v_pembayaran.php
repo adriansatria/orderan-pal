@@ -38,10 +38,6 @@
         }
     }
 
-    function clear(){
-        window.localStorage.clear();
-    }
-
     function hitungKembalian() {
         var uang = document.getElementById('inputUang').value;
         var kembalian = uang - totalBayar;
@@ -182,9 +178,9 @@
                                             <input type="hidden" class="form-control" name="id_pegawai" id="id_pegawai">
                                         </td>
                                         <td>
-                                            <button class="add_pegawai btn btn-info btn-flat" data-toggle="modal" data-target="#showpegawai">
+                                            <a class="btn btn-info btn-flat" data-toggle="modal" data-target="#showpegawai">
                                                 <i class="fa fa-search"></i>
-                                            </button>
+                                            </a>
                                         </td>
                                     </tr>
                                 </table>

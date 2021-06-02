@@ -69,7 +69,9 @@
                                         <th>Uang kembalian</th>
                                         <th>Tanggal Pinjam</th>
                                         <th>Tanggal Pengembalian</th>
-                                        <th>Action</th>
+                                        <th>Ket. denda</th>
+                                        <th>Total denda</th>
+                                        <!-- <th>Action</th> -->
                                     </tr>
                                 </thead>
 
@@ -86,6 +88,8 @@
                                             $kembali = $i['kembalian'];
                                             $tglpinjam = $i['tanggalpeminjaman'];
                                             $tglpengembalian = $i['tanggalpengembalian'];
+                                            $ketdenda = $i ['keterangandenda'];
+                                            $total_denda = $i ['totaldenda'];
                                             
                                             ?>
                                             <tr>
@@ -96,10 +100,12 @@
                                                 <td><?php echo $kembali; ?></td>
                                                 <td><?php echo $tglpinjam; ?></td>
                                                 <td><?php echo $tglpengembalian; ?></td>
-                                                <td>
+                                                <td><?php echo $ketdenda; ?></td>
+                                                <td><?php echo $total_denda; ?></td>
+                                                <!-- <td> -->
                                                     <!-- <a class="btn btn-primary" data-toggle="modal" data-target="#editpenyewaan<?php echo $id; ?>">Edit</a>
                                                     <a type="button" data-toggle="modal" data-target="#deletebarang<?php echo $idpenyewaan; ?>" class="btn btn-danger">Delete</a> -->
-                                                </td>
+                                                <!-- </td> -->
                                             </tr>
                                         <?php
                                             $x++;

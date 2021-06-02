@@ -49,6 +49,8 @@ class pembayaran extends CI_Controller
 		$kembali = strip_tags( $this->input->post ('i_kembali'));
 		$tgl_pinjam = strip_tags( $this->input->post ('i_pinjam'));
 		$tgl_kembali = strip_tags( $this->input->post ('i_pengembali'));
+		$ketdenda = strip_tags( $this->input->post ('i_ketdenda'));
+		$total_denda = strip_tags( $this->input->post ('i_totaldenda'));
 
 		$data = array (
 			'iddetailpemb' => $id,
@@ -57,7 +59,9 @@ class pembayaran extends CI_Controller
 			'bayar' => $bayar,
 			'kembalian' => $kembali,
 			'tanggalpeminjaman' => $tgl_pinjam,
-			'tanggalpengembalian' => $tgl_kembali
+			'tanggalpengembalian' => $tgl_kembali,
+			'keterangandenda' => $ketdenda,
+			'totaldenda' => $total_denda
 		);
 
 		$this->Detailpemb_model->detailpemb_insertinto($id, 'pengembalian', $data);

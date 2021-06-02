@@ -8,6 +8,9 @@ foreach ($detailpemb -> result_array () as $i) :
     $kembali = $i ['kembalian'];
     $tglpinjam = $i ['tanggalpeminjaman'];
     $tglkembali = $i ['tanggalpengembalian'];
+	$ketdenda = @$_POST['keterangandenda'];
+	$totaldenda = @$_POST['totaldenda'];
+
     ?>
 <div class="modal fade" id="pengembalian<?php echo $id; ?>" role="dialog">
 	<div class="modal-dialog">
@@ -83,6 +86,24 @@ foreach ($detailpemb -> result_array () as $i) :
 						<div class="col-md">
 							<input type="hidden" class="form-control" name="i_pengembali" value="<?php echo $tglkembali ; ?> " readonly>
                             <span>: <?php echo $tglkembali ; ?></span>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="row">
+						<label for="title" class="col-md-5 control-label"> Keterangan Denda </label>
+						<div class="col-md">
+							<textarea type="text" class="form-control" name="i_ketdenda"></textarea>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="row">
+						<label for="title" class="col-md-5 control-label"> Total denda </label>
+						<div class="col-md">
+							<input type="text" class="form-control" name="i_totaldenda">
 						</div>
 					</div>
 				</div>
